@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample page</title>
+    <style>
+        .group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 600px;
+            align-items: center;
+
+            background-color: burlywood;
+            padding: 100px;
+
+
+        }
+
+        .group div {
+            display: flex;
+            justify-content: center;
+
+            /* Centers horizontally */
+            align-items: center;
+            flex-direction: column;
+            background-color: antiquewhite;
+            border-radius: 20px;
+            border: solid black 1px;
+        }
+
+
+
+        .group div h5 {
+            align-items: center;
+            color: orange;
+
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>form</h2>
+        <form id="login">
+            <label>NAME: </label>
+            <input id="user" type="text" placeholder="userid">
+            <BR>
+            <label>PASSWORD: </label>
+            <input id="pass" type="password" placeholder="password">
+            <button type="submit">LOGIN</button>
+            <p id="message">hi</p>
+        </form>
+    </section>
+
+    <main id="event" hidden>
+        <header>
+            <h2>COLLEGE EVENT MANAGER</h2>
+        </header>
+        <section class="group">
+            <div>
+                <h5>SPORTS</h5>
+                <p>variety of sports maager by thidals</p>
+            </div>
+            <div>
+                <h5>NCC</h5>
+                <p>soldeiers of the country</p>
+            </div>
+            <div>
+                <h5>NSS</h5>
+                <p>providing services to people in need</p>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        document.getElementById("login").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const user = document.getElementById("user").value;
+            const pass = document.getElementById("pass").value;
+            console.log("hi" + user + " " + pass);
+            if (user === "admin" && pass === "1234") {
+                document.getElementById("login").hidden = true;
+                document.getElementById("event").hidden = false;
+            } else {
+                document.getElementById("message").textContent = "Incorrect username or password.";
+            }
+
+
+        })
+
+    </script>
+
+
+
+
+</body>
+
+</html>
